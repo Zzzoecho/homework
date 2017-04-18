@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nav</title>
+    
+<style>
+    .ct, ul, li {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    .nav .category {
+        position: relative;
+        background-color: #c7171e;
+        border-bottom: 1px solid #de272e;
+        display: list-item;
+        width: 200px;
+    }
+    .category>a {
+        display: block;
+        color: #fff;
+        padding: 10px;
+        
+    }
+    .category span {
+        color: #fff;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    
+    .category .child-panel {
+        position: absolute;
+        top: 0;
+        left: 200px;
+        border: 1px solid #ccc;
+        width: 200px;
+        display: none;
+    }
+    .category.hover .child-panel {
+        display: block;
+    }
+    .category .child-panel>li {
+        float: left;
+        padding: 10px 20px;
+        width: 50px;
+    }
+    .category .child-panel>li a {
+        color: #333;
+        font-size: 12px;
+    }
+    
+</style>
+</head>
+<body>
+    <div class="ct">
+        <ul class="nav">
+            <li class="category">
+                <a href="#">珠宝玉器</a>
+                <span class="icon">></span>
+                <ul class="child-panel">
+                    <li><a href="#">翡翠</a></li>
+                    <li><a href="#">玉石</a></li>
+                    <li><a href="#">宝石</a></li>
+                    <li><a href="#">水晶</a></li>
+                    <li><a href="#">玛瑙</a></li>
+                    <li><a href="#">珍珠</a></li>
+                    <li><a href="#">钻石</a></li>
+                    <li><a href="#">琥珀</a></li>
+                    <li><a href="#">和田</a></li>
+                    <li><a href="#">琥珀</a></li>
+                </ul>
+            </li>
+            <li class="category">
+                <a href="#">珠宝玉器</a>
+                <span class="icon">></span>
+                 <ul class="child-panel">
+                    <li><a href="#">翡翠</a></li>
+                    <li><a href="#">玉石</a></li>
+                    <li><a href="#">宝石</a></li>
+                    <li><a href="#">水晶</a></li>
+                    <li><a href="#">玛瑙</a></li>
+                    <li><a href="#">珍珠</a></li>
+                </ul>
+            </li>
+            <li class="category">
+                <a href="#">珠宝玉器</a>
+                <span class="icon">></span>
+                 <ul class="child-panel">
+                    <li><a href="#">翡翠</a></li>
+                    <li><a href="#">玉石</a></li>
+                    <li><a href="#">宝石</a></li>
+                    <li><a href="#">水晶</a></li>
+                </ul>
+            </li>
+            <li class="category">
+                <a href="#">珠宝玉器</a>
+                <span class="icon">></span>
+                <ul class="child-panel">
+                    <li><a href="#">翡翠</a></li>
+                    <li><a href="#">玉石</a></li>
+                    <li><a href="#">宝石</a></li>
+                    <li><a href="#">水晶</a></li>
+                    <li><a href="#">玛瑙</a></li>
+                    <li><a href="#">珍珠</a></li>
+                </ul>
+            </li>
+            <li class="category">
+                <a href="#">珠宝玉器</a>
+                <span class="icon">></span>
+                 <ul class="child-panel">
+                    <li><a href="#">翡翠</a></li>
+                    <li><a href="#">玉石</a></li>
+                    <li><a href="#">宝石</a></li>
+                    <li><a href="#">水晶</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+
+        $('.nav').on('mouseenter','a', function(e){
+            $(this).parent().addClass('hover')
+        })
+        $('.nav').on('mouseleave','a', function(e){
+            $(this).parent().removeClass('hover')
+        })
+    </script>
+</body>
+</html>
