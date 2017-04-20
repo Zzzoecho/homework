@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery 各种效果</title>
+<style>
+    div, button, input, p, ul {
+        margin: 0;
+        padding: 0;
+        font-family: 'Microsoft Yahei';
+        list-style: none;
+    }
+    .btn, .loadmore {
+        background-color: #ccc;
+        padding: 10px;
+        margin: 20px;
+        border-radius: 3px;
+    }
+
+    .content {
+        padding: 20px;
+        margin: 20px;
+        border: 1px solid #ccc;
+        width: 200px;
+        height: 150px;
+        overflow: scroll;
+    }
+
+    .input {
+        margin: 20px;
+        border: 1px solid #ccc;
+
+    }
+</style>
+</head>
+<body>
+    <button class="btn">我是能变色的btn</button>
+
+    <div class="content">
+        <p>我是$div,鼠标移入变红,移出变白</p>
+        <p>滚动距离</p>
+        <ul>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+            <li>.</li>
+        </ul>       
+    </div>
+
+    <input type="text" class="input">
+
+    <select name="city" id="">
+        <option value="shanghai">上海</option>
+        <option value="beijing">北京</option>
+        <option value="hangzhou">杭州</option>
+    </select>
+</body>
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    // 当点击$btn 时， $btn 的背景色变为红色再变为蓝色
+    var $btn = $('.btn')
+    $btn.on('click', function(){
+        if ($btn.css('background-color') !== 'rgb(255, 0, 0)'){
+             $btn.css('background-color', 'red')
+        }else{
+            $btn.css('background-color', 'blue')
+        }      
+    })
+
+    // $div,鼠标移入变红,移出变白
+    var $div = $('.content')
+    $div.on('mouseenter', function(){
+        $div.css('background-color', 'red')
+    })
+    $div.on('mouseleave', function(){
+        $div.css('background-color', '#fff')
+    })
+
+    // 当窗口滚动时，获取垂直滚动距离
+    $div.on('scroll', function(){
+        var len = $div.scrollTop() + ', '
+        $('.content p:last').append(len)
+    })
+
+    var $input = $('.input')
+    var str = ''
+    //当鼠标激活 input 输入框时让输入框边框变为蓝色
+    $input.on('focus', function(){
+        $input.css('border-color', 'blue')
+    })
+    // 当输入框内容改变时把输入框里的文字小写变为大写
+    $input.on('input propertychange', function(){   
+        str = $input.val().toUpperCase();
+        $input.val(str)               
+    })
+    // 当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+    $input.on('blur', function(){
+        $input.css('border-color', '#ccc')
+        console.log(str)
+    })
+
+    // 输出select被选中的项的值
+    var $select = $('select')
+    $select.on('change', function(){
+        console.log($select.val())
+    })
+</script>
+
+
+
+</html>
