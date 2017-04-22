@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片懒加载</title>
+    <style>
+        div,
+        ul,
+        li,
+        img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .ct {
+            margin: 0 auto;
+            width: 800px;
+        }
+        
+        li {
+            float: left;
+            margin: 10px;
+        }
+        
+        ul::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <ul class="imgList">
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg"
+                    alt="">
+            </li>
+            <li>
+                <img src="http://tse2.mm.bing.net/th?id=OIP.KcoExm0hIe0k0tpG5k5lNADcDc&w=153&h=155&c=7&qlt=90&o=4&pid=1.7" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg"
+                    alt="">
+            </li>
+        </ul>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        var $img = $('img')
+        load()
+
+        $(window).on('scroll', load)
+
+        function load() {
+            $img.each(function () {
+                if (isShow($(this))) {
+                    showImg($(this))
+                }
+            })
+        }
+
+        function isShow($img) {
+
+            var offsetTop = $img.offset().top
+            var scrollTop = $(window).scrollTop()
+            var winH = $(window).height()
+            if (offsetTop > scrollTop && offsetTop < (winH + scrollTop)) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function showImg($img) {
+            $img.each(function () {
+                $(this).attr('src', $(this).attr('data-src'))
+            })
+        }
+    </script>
+</body>
+
+</html>
