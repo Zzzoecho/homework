@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新闻懒加载</title>
+    <style>
+        div,
+        ul,
+        li,
+        a,
+        h3,
+        p {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-family: 'Microsoft Yahei';
+        }
+        
+        .content {
+            margin: 0 auto;
+            width: 800px;
+        }
+        
+        .content .items {
+            margin: 10px;
+        }
+        
+        .items::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .items .pic {
+            float: left;
+            margin-right: 10px;
+        }
+        
+        .items .pic img {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .items p {
+            margin-top: 10px;
+            color: #ccc;
+        }
+        .load-more {
+            height: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <ul class="news">
+            <!--<li class='items'>
+                <a href="http://xw.qq.com/mil/20160830028700/MIL2016083002870002">
+                    <div class="pic"><img src="http://inews.gtimg.com/newsapp_ls/0/531644649_150120/0" alt=""></div>
+                    <h3>韩国多次宣称“一旦开战三天内消灭朝鲜空军”，靠谱吗？</h3>
+                    <p>韩国多次宣称“一旦开战三天内消灭朝鲜空军”，靠谱吗？</p>
+                </a>
+            </li>
+            <li class='items'>
+                <a href="http://xw.qq.com/mil/20160830028700/MIL2016083002870002">
+                    <div class="pic"><img src="http://inews.gtimg.com/newsapp_ls/0/531644649_150120/0" alt=""></div>
+                    <h3>韩国多次宣称“一旦开战三天内消灭朝鲜空军”，靠谱吗？</h3>
+                    <p>韩国多次宣称“一旦开战三天内消灭朝鲜空军”，靠谱吗？</p>
+                </a>
+            </li>-->
+        </ul>
+        <p class="load-more"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        var start = 0
+        var isNewsArrive = true
+        var isOver = false
+        getNews()
+        $(window).on('scroll', checkNews)
+
+        function checkNews() {
+            if (isShow($('.load-more')) && !isOver && isNewsArrive) {
+                getNews()
+            }
+        }
+
+        function getNews() {
+            isNewsArrive = false
+            $.ajax({
+                url: '/getNews',
+                type: 'get',
+                data: {
+                    index: start
+                }
+            }).done(function (ret) {
+                isNewsArrive = true
+                if (ret.status === 0) {
+                    start++
+                    appendHTML(ret.data)
+                    checkNews()
+                } else {
+                    console.log('获取新闻出错')
+                }
+            }).fail(function () {
+                console.log('出错啦')
+            })
+        }
+
+        function appendHTML(ret) {
+            if (ret.length === 0) {
+                isOver = true
+                $('.news').append('<p>没有更多数据了</p>')
+                return
+            }
+            var html = ''
+            $.each(ret, function () {
+                html += '<li class="items">'
+                html += '<a href="' + this.link + '">'
+                html += '<div class="pic">'
+                html += '<img src=" ' + this.img + '"></div>'
+                html += '<h3>' + this.title + '</h3>'
+                html += '<P>' + this.brif + '</p>'
+                html += '</a>'
+                html += '</li>'
+            })
+            $('.news').append(html)
+        }
+
+        function isShow($node) {
+            var winH = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                offsetTop = $node.offset().top,
+                nodeHeight = $node.height()
+            if (offsetTop + nodeHeight > scrollTop && offsetTop < winH + scrollTop) {
+                return true
+            } else {
+                return false
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
