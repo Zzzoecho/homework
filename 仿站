@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>加勒比海盗</title>
+  <script src="//at.alicdn.com/t/font_j6133vpaenkfyldi.js">
+  </script>
+  <style type="text/css">
+    .icon {
+       width: 3em; height: 3em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+       color:#dec674;
+    }
+  </style>
+</head>
+<body>
+<!-----header开始------>
+<div id="header">
+  <svg class="icon">
+    <use xlink:href="#icon-haidao"></use>
+  </svg>
+  <ul class="nav">
+    <li><a href="#characters">CHARACTERS</a></li>
+    <li><a href="#pic">PHOTO</a></li>
+    <li><a href="#history">HISTORY</a></li>
+    <li><a href="#actor">ACTORS</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</div>
+<!-----header结束------>
+  
+<!-----main开始------>
+<div id="main">
+  <h2>Welcome to Pirates of the Caribbean</h2>
+  <h1>IT'S NICE TO MEET <br> YOU</h1>
+   <a href="#">SHOW ME MORE</a> 
+</div>
+<!-----main结束------>
+  
+<!-----characters开始------>
+<div id="characters">
+  <h2 class="middle">Characters Introduction</h2>
+  <div class="wrapper">
+    <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/56990076-file_1492876962637_25a7.png" alt="">
+    <h3>Elizabeth Swann</h3>
+    <p>英国皇家总督的千金，最后却成为与杰克船长共伍的女海盗。</p>
+  </div>
+  <div class="wrapper">
+    <img src="http://i1.piimg.com/567571/6648030d1de4e999.png" alt="">
+    <h3>Jack Sparrow</h3>
+    <p>一名纵横四大洋的传奇海盗,九大海盗王之一。疯疯癫癫，但足智多谋。</p>
+  </div>
+  <div class="wrapper">
+    <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/17669573-file_1492876964945_8046.png" alt="">
+    <h3>Will Turner</h3>
+    <p>海盗之子,喜欢着伊丽莎白。因杰克船长而被卷入一场又一场的海盗冒险历程。</p>
+  </div>
+</div>
+<!-----characters结束------>
+  
+<!-----pic开始------>
+<div id="pic">
+  <h2 class="middle">PHOTO</h2>
+  <div class="ct">
+    <ul>
+      <li>
+        <div class="wrap">
+          <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/19167013-file_1492877043981_dd9f.jpg" alt=""> 
+            <span>
+              <svg class="icon">
+                <use xlink:href="#icon-haidao"></use>
+              </svg>
+            </span>
+          <h3>加勒比海盗：惊涛怪浪</h3>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <img src="http://i1.piimg.com/567571/b3a02dffb59aa44f.jpg" alt="">
+          <span>
+            <svg class="icon">
+              <use xlink:href="#icon-haidao"></use>
+            </svg>
+          </span>
+          <h3>加勒比海盗：黑珍珠号的诅咒</h3>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <img src="http://i1.piimg.com/567571/9185f08ba58f07ef.jpg" alt="">
+          <span>
+            <svg class="icon">
+              <use xlink:href="#icon-haidao"></use>
+            </svg>
+          </span>
+          <h3>加勒比海盗：聚魂棺</h3>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <img src="http://i1.piimg.com/567571/c98e6443a8cf2ac6.jpg" alt="">
+          <span>
+            <svg class="icon">
+              <use xlink:href="#icon-haidao"></use>
+            </svg>
+          </span>
+          <h3>加勒比海盗：世界的尽头</h3>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <img src="http://i1.piimg.com/567571/52927b7d577077cc.jpg" alt="">
+          <span>
+            <svg class="icon">
+              <use xlink:href="#icon-haidao"></use>
+            </svg>
+          </span>
+          <h3>加勒比海盗：黑珍珠号的诅咒</h3>
+        </div>
+      </li>
+      <li>
+        <div class="wrap">
+          <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/42113554-file_1492877109969_7030.jpg" alt="">
+          <span>
+            <svg class="icon">
+              <use xlink:href="#icon-haidao"></use>
+            </svg>
+          </span>
+          <h3>加勒比海盗：聚魂棺</h3>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-----pic结束------>
+
+<!-----history开始------>  
+<div id="history">
+  <h2 class="middle">History</h2>
+  <div class="container">
+      <div class="wp">
+        <div class="article">
+          <h3>The Curse of the Black Pearl</h3>
+          <h3>2003年7月9日上映</h3>
+          <p>巴伯萨加勒比海横行霸道。并绑架了总督的女儿伊莉莎白和铁匠学徒威尔，在打斗中，他们发现，巴伯萨和他的海盗们在每一个月光之夜就变成不死骷髅，而伊莉莎白正是解开咒语的关键。</p>
+        </div>
+        <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/96672138-file_1492876980634_7b2.jpg" alt="">
+      </div>
+      <div class="wp">
+        <div class="article turn">
+          <h3>Dead Man's Chest</h3>
+          <h3>2006年7月7日上映</h3>
+          <p>在夺回了“黑珍珠”号以及摆平了巴博萨船长之后，杰克船长这次又迎来了一个更为离奇的敌人--不死人戴维·琼斯。而正忙着举办婚礼的威尔和伊丽莎白，再次被卷入这场争夺中。</p>
+        </div>
+        <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/83349088-file_1492877163703_16c3c.jpg" alt="">
+      </div>
+      <div class="wp">
+        <div class="article">
+          <h3>At World's End</h3>
+          <h3>2007年5月26日上映</h3>
+          <p>影片剧情围绕威尔、伊丽莎白、赫克托以及“黑珍珠号”海盗船的一众船员们试图营救杰克船长的努力展开，他们还需要与东印度贸易公司对抗，挫败他们永远消灭所有海盗的野心。</p>
+        </div>
+        <img src="http://i1.piimg.com/567571/ac8b6240cd60f3b9.jpg" alt="">
+      </div>
+      <div class="wp">
+        <div class="article turn">
+          <h3>On Stranger Tides</h3>
+          <h3>2011年5月20日上映</h3>
+          <p>故事以杰克船长寻找不老泉为主线。杰克的老情人意外出现，但让杰克船长不确定的是，她究竟是因爱情而来、还只是想利用他来找到传说中的不老泉。杰克再次踏上了一条吉凶未卜的旅程。</p>
+        </div>
+        <img src="http://i1.piimg.com/567571/a1b60957489b7347.jpg" alt="">
+      </div>
+      <div class="wp">
+        <div class="article">
+          <h3>Dead Men Tell No Tales</h3>
+          <h3>2017年5月26日上映</h3>
+          <p>主要讲述的是杰克船长一行人将寻找三叉戟，而杰克船长的父亲蒂格船长则掌握着关于三叉戟的重要信息的故事</p>
+        </div>
+        <img src="http://i1.piimg.com/567571/8aac18d966ec411c.jpg" alt="">
+      </div>
+    <div class="wp">
+      <p>coming soon</p>
+    </div>
+  </div>
+</div>
+<!-----history结束------>  
+  
+  
+<!-----actor开始------>    
+<div id="actor">
+  <h2 class="middle">Actors</h2>
+  <div class="wrapper"> 
+    <img src="http://i1.piimg.com/567571/542578e7323508c9.png" alt="">
+    <h3>Keira Knightley</h3>
+    <p>饰 Elizabeth Swann</p>
+  </div>
+      
+  <div class="wrapper"> 
+    <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/28980207-file_1492877206101_a94d.png" alt="">
+    <h3>Johnny Depp</h3>
+    <p>饰 Jack Sparrow</p>
+  </div>
+      
+  <div class="wrapper">
+    <img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/2562497-file_1492877199814_cfaf.png" alt="">
+    <h3>Orlando Bloom</h3>
+    <p>饰 Will Turner</p>
+  </div>
+</div>
+<!-----actor结束------>    
+
+  
+<!-----contact开始------>     
+<div id="contact">
+  <h2 class="middle">CONTACT US</h2>
+  <div class="detail">
+    <form action="" class="detail">
+      <div class="wrap">
+        <div class="form name">
+          <input type="text" placeholder="YOUR NAME*"> 
+        </div>
+        <div class="form email">
+          <input type="text" placeholder="YOUR EMAIL*"> 
+        </div>
+        <div class="form phone">
+          <input type="text" placeholder="YOUR PHONE*"> 
+        </div>
+      </div>
+      
+      <div class="form message">
+        <textarea name="message" id="message" cols="60" rows="13" placeholder="YOUR MESSAGE*"></textarea>
+      </div>
+      
+    </form>
+    <a href="#">SEND MESSAGE</a></button>
+  </div>
+</div>
+<!-----contact结束------>       
+
+<div id="copyright">
+  <p>Copyright © Zzzoe's Website 2017</p>
+</div>
+</body>
+</html>
