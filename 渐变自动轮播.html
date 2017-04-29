@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>渐变自动轮播</title>
+    <style>
+        div, ul, li, a, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .rotation {
+            position: relative;
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+        }
+        .rotation .btn {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px; 
+            display: block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.5);
+            color: #fff;
+            z-index: 1;
+        }
+        .rotation .pre-btn {
+            left: 10px;
+        }
+        .rotation .next-btn {
+            right: 10px;
+        }
+
+        .img-ct {
+            position: relative;
+
+        }
+        .clearfix::after {
+            contnet: '';
+            display: block;
+            clear: both;
+        }
+        .img-ct li {
+            position: absolute;
+            display: none;
+        }
+        .img-ct li img {
+            width: 300px;
+            height: 300px;
+        }
+        
+       
+        .sign {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+        .sign li {
+            float: left;
+            display: block;
+            width: 20px;
+            height: 5px;
+            border-radius: 3px;
+            background-color: #fff;
+            opacity: 0.8;
+            margin: 8px;
+            cursor: pointer;
+        }
+        
+        .sign li.active {
+            background-color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="rotation">
+        <a class='btn pre-btn' href="#">&lt;</a>
+        <a class='btn next-btn' href="#">&gt;</a>
+        <ul class='img-ct clearfix'>
+            
+            <li index=0><a href="#"><img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/51244769-file_1492962109621_86f2.jpg" alt="0.jpg"></a></li>
+            <li index=1><a href="#"><img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/71516629-file_1492962103922_150f2.jpg" alt="1.jpg"></a></li>
+            <li index=2><a href="#"><img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/68534517-file_1492962094257_b51a.jpg" alt="2.jpg"></a></li>
+            <li index=3><a href="#"><img src="http://oo7a0zmzl.bkt.clouddn.com/17-4-23/60613281-file_1492962073647_106bf.jpg" alt="3.jpg"></a></li>
+            
+        </ul>
+        <ul class="sign clearfix">
+            <li class="active"><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        var $prebtn = $('.pre-btn'),  
+            $nextbtn = $('.next-btn'),
+            $imgList = $('.img-ct').children(),
+            $img = $('.img-ct li'),
+            $sign = $('.sign li'),
+            $imgNum = $('.img-ct').children()
+
+        var Imglength = $img.children().length  //4
+        var ImgIndex = 0
+        var isAnimate = false
+        var imgNum = $imgNum.length
+
+        $nextbtn.on('click', function(){
+            playNext()
+        })
+        $prebtn.on('click', function(){
+            play((imgNum + ImgIndex-1) % imgNum)
+        })
+
+        $sign.on('click', function(){
+            var index = $(this).index()
+            play(index)
+        })
+        play(0)
+        autoplay()
+
+        function play(idx){
+            if(isAnimate) return
+            isAnimate = true
+            $imgList.eq(ImgIndex).fadeOut(800)
+            $imgList.eq(idx).fadeIn(800, function(){                
+                isAnimate = false                
+            })
+            ImgIndex = idx
+            mark()
+        }
+
+        function playNext(){
+            play((ImgIndex+1) % imgNum)
+        }
+
+        function mark(){
+            $sign.removeClass('active').eq(ImgIndex).addClass('active')
+        }
+
+        function autoplay(){
+            var auto = setInterval(playNext, 1500)
+        }
+    </script>
+
+</body>
+</html>
