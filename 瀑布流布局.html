@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>瀑布流</title>
+    <style>
+        div,
+        img {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .content {
+            position: relative;
+        }
+        
+        .items {
+            position: absolute;
+            margin: 5px;
+            transition: all 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/400" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/200" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/200" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/450" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/400" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/400" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/450" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/200" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/400" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/200" alt="">
+        </div>
+        <div class="items">
+            <img src="https://unsplash.it/200/300" alt="">
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        var $items = $('.items')
+
+        waterfull()
+        $(window).resize(function(){
+            waterfull()
+        })
+
+        function waterfull() {
+            var ImgArr = []
+            var column = parseInt($('.content').width() / $items.outerWidth(true))
+
+            for (var i = 0; i < column; i++) {
+                ImgArr[i] = 0
+            }
+
+            $items.each(function () {
+                var minValue = Math.min.apply(null, ImgArr)
+                var minIndex = ImgArr.indexOf(minValue)
+
+                $(this).css({
+                    left: $(this).outerWidth(true) * minIndex,
+                    top: ImgArr[minIndex]
+                })
+
+                ImgArr[minIndex] += $(this).outerHeight(true)
+            })
+        }
+    </script>
+
+</body>
+
+</html>
