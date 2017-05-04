@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新闻瀑布流</title>
+    <style>
+        div,
+        ul,
+        li,
+        img,
+        h4,
+        p {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .content {
+            width: 900px;
+            margin: 0 auto;
+        }
+        
+        .newsList {
+            position: relative;
+        }
+        
+        .news {
+            position: absolute;
+            padding: 0 0 10px 0;
+            border: 1px solid #ccc;
+            width: 280px;
+            margin: 5px;
+            opacity: 0;
+            transition: all .8s;
+        }
+        
+        .news h4 {
+            border-bottom: 1px solid #ccc;
+            margin-left: 10px;
+            padding-bottom: 5px;
+        }
+        
+        .news img {
+            width: 260px;
+            margin: 10px;
+        }
+        
+        .news p {
+            font-size: 12px;
+            font-family: 'Microsoft Yahei';
+            margin: 10px;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <ul class="newsList">
+            <!--<li class="news">
+            <a href="#">
+                <img src="http://n.sinaimg.cn/tech/transform/20170502/GASk-fyetwsm1598115.jpg" alt="">
+            </a>
+            <h4>宝马新款迷你概念车随情绪变色</h4>
+            <p>这款迷你（Mini）概念车外表覆盖着一层新材料，可以随驾驶者的喜好从默认的银色变成其他各种颜色。</p>
+        </li>
+        <li class="news">
+            <img src="http://n.sinaimg.cn/tech/transform/20170502/GASk-fyetwsm1598115.jpg" alt="">
+            <h4>宝马新款迷你概念车随情绪变色</h4>
+            <p>这款迷你（Mini）概念车外表覆盖着一层新材料，可以随驾驶者的喜好从默认的银色变成其他各种颜色。</p>
+        </li>
+        <li class="news">
+            <img src="http://n.sinaimg.cn/tech/transform/20170502/GASk-fyetwsm1598115.jpg" alt="">
+            <h4>宝马新款迷你概念车随情绪变色</h4>
+            <p>这款迷你（Mini）概念车外表覆盖着一层新材料，可以随驾驶者的喜好从默认的银色变成其他各种颜色。</p>
+        </li>-->
+        </ul>
+    </div>
+    <div class="load">你看不见我</div>
+
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        var curPage = 1,
+            perPageCount = 10
+        var isDataArrive = true
+
+        start()
+
+
+        // $(window).resize(function(){
+        //     waterfull()
+        // })
+
+
+
+        function start() {
+
+            getNews(function (newsList) {
+                isDataArrive = true
+                $.each(newsList, function (idx, news) {
+                    var $node = getNode(news)
+                    $node.find('img').load(function () {
+                        $('.newsList').append($node)
+                        waterfull($node)
+                    })
+                })
+            })
+            isDataArrive = false
+        }
+
+        $(window).scroll(function () {
+            if (!isDataArrive) return
+
+            if (isVisible($('.load'))) {
+                start()
+            }
+        })
+
+        //获取数据
+
+        function getNews(callback) {
+            $.ajax({
+                url: 'http://platform.sina.com.cn/slide/album_tech',
+                dataType: 'jsonp',
+                jsonp: 'jsoncallback',
+                data: {
+                    app_key: '1271687855',
+                    num: perPageCount,
+                    page: curPage
+                }
+            }).done(function (ret) {
+                if (ret.status.code === '0') {
+                    callback(ret.data)
+                    curPage++
+                } else {
+                    console.log('返回数据出错')
+                }
+            })
+        }
+
+        function getNode(news) {
+            var html = ''
+            html += '<li class="news">'
+            html += ' <a href="' + news.url + '" class="link"><img src="' + news.img_url + '" alt=""></a>'
+            html += '<h4>' + news.short_name + '</h4>'
+            html += '<p>' + news.short_intro + '</p>'
+            html += '</li>'
+            return $(html)
+        }
+
+        function isVisible($load) {
+            var scrollH = $(window).scrollTop(),
+                winH = $(window).height(),
+                top = $('.load').offset().top;
+
+            if (top < winH + scrollH) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        //瀑布流
+
+        function waterfull($nodes) {
+            var colSumHeight = [],
+                nodeWidth = $('.news').outerWidth(true),
+                colNum = parseInt($('.content').width() / nodeWidth);
+
+            if (colSumHeight.length === 0) {
+                for (var i = 0; i < colNum; i++) {
+                    colSumHeight.push(0)
+                }
+            }
+
+            $nodes.each(function () {
+                var $cur = $(this);
+
+                var idx = 0,
+                    minSumHeight = colSumHeight[0];
+                console.log(colSumHeight)
+                for (var i = 0; i < colSumHeight.length; i++) {
+                    if (colSumHeight[i] < minSumHeight) {
+                        idx = i;
+                        minSumHeight = colSumHeight[i];
+                    }
+                }
+
+                $cur.css({
+                    left: nodeWidth * idx,
+                    top: minSumHeight,
+                    opacity: 1
+                });
+
+                colSumHeight[idx] = $cur.outerHeight(true) + colSumHeight[idx];
+                console.log(colSumHeight)
+                $('.newsList').height(Math.max.apply(null, colSumHeight));
+            });
+
+        }
+    </script>
+</body>
+
+</html>
