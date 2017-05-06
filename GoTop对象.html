@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            height: 1500px;
+            border: 1px solid #333;
+        }
+        .box p {
+            margin: 10px;
+            text-align: center;
+        }
+        .btn {
+            position: fixed;
+            right: 100px;
+            bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="content">
+    <div class="box">
+        <p>第一行</p>
+        <p>第二行</p>
+        <p>第三行</p>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+    function GoTop(){
+        this.ct = $('.content')
+        this.target = $('<button class="btn">Go Top</button>')
+        this.createNode = function(){
+            this.target.appendTo(this.ct)
+            this.target.hide()
+        }
+        this.bindEvent = function(){
+            var $cur = this.target
+            $(window).on('scroll', function(){
+                if($(window).scrollTop() > 50){
+                    $cur.show()
+                }else{
+                    $cur.hide()
+                }
+            })
+            $cur.on('click', function(){
+                $(window).scrollTop(0)              
+            })
+        }
+    }
+var GoTop1 = new GoTop()
+GoTop1.bindEvent()
+GoTop1.createNode()
+
+</script>
+</html>
