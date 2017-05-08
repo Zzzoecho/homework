@@ -298,12 +298,6 @@
             var panelClass = $(this).attr('class')
             $('#cube').removeClass().addClass(panelClass)
         })
-        var $panels = $('#carousel figure')
-        var panelSize = $panels.outerWidth(true),
-            numberOfPanels = $panels.length
-
-        var tz = Math.round((panelSize / 2) / Math.tan(Math.PI / numberOfPanels));
-        console.log(tz)
     </script>
 </body>
 
