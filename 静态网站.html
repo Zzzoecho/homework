@@ -298,16 +298,22 @@
             color: #fff;
             padding: 50px 30px;
         }
-
+        .detail {
+            margin-bottom: 20px;
+        }
         .detail .form input {
             width: 555px;
             padding: 20px;
             border-radius: 5px;
-            margin: 20px;
+            margin: 21px;
         }
-
+        .detail::after {
+            content: '';
+            display: block;
+            clear: left;
+        }
         .detail .message {
-            float: right;
+            float: right;   
         }
 
         .detail .wrap {
@@ -319,6 +325,7 @@
             width: 555px;
             padding: 20px;
             margin: 20px;
+            font-family: 'Microsoft Yahei';
         }
 
         #contact h2 {
@@ -550,7 +557,7 @@
     <!-----contact开始------>
     <div id="contact">
         <h2 class="middle">CONTACT US</h2>
-        <div class="detail clearfix">
+        <div class="detail">
             <form action="" class="detail">
                 <div class="wrap">
                     <div class="form name">
