@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件-曝光加载</title>
+    <style>
+        ul, li, img, a, p {
+            margin: 0;
+            padding: 0;
+        }
+        .imgList {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .imgList::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .imgList li {
+            list-style: none;
+            float: left;
+            margin: 10px;
+        }
+        .imgList li img {
+            width: 380px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="imgList">
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" alt=""></a>
+        </li>
+    </ul>
+    <p class="hello">hello</p>
+    <p class="world">world</p>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script>
+        function Exposure($target, callback){
+            this.$target = $target
+            this.callback = callback
+            this.bind()
+            this.check()
+        }
+        
+        Exposure.prototype.bind = function(){
+            var _this = this
+            $(window).on('scroll', function(){
+                _this.check()
+            })
+        }
+
+        Exposure.prototype.check = function(){
+            if(this.isShow(this.$target)){
+                this.callback(this.$target)
+            }
+        }
+
+        Exposure.prototype.isShow = function(){
+            var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                offsetTop = this.$target.offset().top,
+                nodeHeight = this.$target.height()
+
+            if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
+                return true
+            }else{
+                return false
+            }
+        }
+
+        Exposure.prototype.showImg = function($img){
+            var imgUrl = $img.attr('data-src')
+            $img.attr('src', imgUrl)
+        }
+
+        var Lazy = (function(){
+            return {
+                init: function($target, callback){
+                    $target.each(function(idx, target){
+                        new Exposure($(target), callback)
+                    })
+                }
+            }
+        })()
+
+        Lazy.init($('.imgList img'), function($node){
+            this.showImg($node)
+        })
+        Lazy.init($('.hello'), function($node){
+            $node.text($node.text() + '123')
+        })
+        Lazy.init($('.world'), function($node){
+            $node.text($node.text() + '456')
+        })
+    </script>
+</body>
+</html>
