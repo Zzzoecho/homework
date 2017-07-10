@@ -83,8 +83,7 @@
     </div>
     <div class="load">你看不见我</div>
 
-
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script>
         var curPage = 1,
             perPageCount = 10,
@@ -119,7 +118,7 @@
 
         function getNews(callback) {
             $.ajax({
-                url: 'http://platform.sina.com.cn/slide/album_tech',
+                url: 'https://platform.sina.com.cn/slide/album_tech',
                 dataType: 'jsonp',
                 jsonp: 'jsoncallback',
                 data: {
@@ -177,7 +176,7 @@
 
                 var idx = 0,
                     minSumHeight = colSumHeight[0];
-                console.log(colSumHeight)
+
                 for (var i = 0; i < colSumHeight.length; i++) {
                     if (colSumHeight[i] < minSumHeight) {
                         idx = i;
@@ -192,7 +191,6 @@
                 });
 
                 colSumHeight[idx] = $cur.outerHeight(true) + colSumHeight[idx];
-                console.log(colSumHeight)
                 $('.newsList').height(Math.max.apply(null, colSumHeight));
             });
 
