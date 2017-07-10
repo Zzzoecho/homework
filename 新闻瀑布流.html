@@ -84,7 +84,7 @@
     <div class="load">你看不见我</div>
 
 
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
         var curPage = 1,
             perPageCount = 10,
@@ -123,9 +123,10 @@
                 dataType: 'jsonp',
                 jsonp: 'jsoncallback',
                 data: {
+                    // channel: '头条',
                     app_key: '1271687855',
                     num: perPageCount,
-                    page: curPage
+                    start: curPage
                 }
             }).done(function (ret) {
                 if (ret.status.code === '0') {
@@ -140,8 +141,8 @@
         function getNode(news) {
             var html = ''
             html += '<li class="news">'
-            html += ' <a href="' + news.url + '" class="link"><img src="' + news.img_url + '" alt=""></a>'
-            html += '<h4>' + news.short_name + '</h4>'
+            html += ' <a href="' + news.short_name + '" class="link"><img src="' + news.img_url + '" alt=""></a>'
+            html += '<h4>' + news.name + '</h4>'
             html += '<p>' + news.short_intro + '</p>'
             html += '</li>'
             return $(html)
