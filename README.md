@@ -1,3 +1,12 @@
-### event.js 跨浏览器的事件兼容
 
-<br>bindEvent 事件绑定，解决了作用域不相同this指向不同的问题，removeEvent解绑。对目标元素的获取(getTarget),取消默认事件(preventDefault),阻止冒泡(stopPaprogation)也做了兼容。
+- CSS3 3D效果 [预览地址](https://zzzoecho.github.io/little-projects/CSS3.html)
+- Tab切换 [预览地址](https://zzzoecho.github.io/little-projects/tab%E5%88%87%E6%8D%A2.html)
+- 图片懒加载 [预览地址](https://zzzoecho.github.io/little-projects/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.html)
+- 导航菜单 [预览地址](https://zzzoecho.github.io/little-projects/%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95.html)
+- 新闻瀑布流 [预览地址](https://zzzoecho.github.io/little-projects/%E6%96%B0%E9%97%BB%E7%80%91%E5%B8%83%E6%B5%81.html)
+- 无限循环轮播 [预览地址](https://zzzoecho.github.io/little-projects/%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF%E8%BD%AE%E6%92%AD.html#)
+- 渐变自动轮播 [预览地址](https://zzzoecho.github.io/little-projects/%E6%B8%90%E5%8F%98%E8%87%AA%E5%8A%A8%E8%BD%AE%E6%92%AD.html#)
+- 木桶布局 [预览地址](https://zzzoecho.github.io/little-projects/%E6%9C%A8%E6%A1%B6%E5%B8%83%E5%B1%80.html)
+- 瀑布流布局 [预览地址](https://zzzoecho.github.io/little-projects/%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80.html#)
+- 点击按钮加载数据 [预览地址](https://zzzoecho.github.io/little-projects/%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE.html#)
+- event.js 跨浏览器的事件兼容：bindEvent 事件绑定，解决了作用域不相同this指向不同的问题，removeEvent解绑。对目标元素的获取(getTarget),取消默认事件(preventDefault),阻止冒泡(stopPaprogation)也做了兼容。
